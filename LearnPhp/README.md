@@ -263,3 +263,113 @@ $a = array("Bill" => 10, "joe" => 20);
 Here, "Bill" and "joe" are keys, and 10 and 20 are their respective values.
 
 Associative arrays are particularly useful when you need to organize data in a meaningful way and access it using descriptive keys.
+
+## Multidimesional Array
+
+## Count() and sizeof()
+
+In PHP, both count() and sizeof() are functions used to retrieve the number of elements in an array.
+
+# count()
+
+The count() function returns the number of elements in an array.
+
+# Syntax:
+
+$count = count($array);
+
+# sizeof()
+
+sizeof() is an alias of count(). It behaves identically to count() and returns the number of elements in an array.
+
+# Syntax:
+
+$size = sizeof($array);
+
+Both count() and sizeof() can be used interchangeably to obtain the size of an array.
+
+These functions are particularly useful when you need to dynamically determine the size of an array for processing or validation purposes.
+
+## In_array & Array_search
+
+In PHP, in_array() and array_search() are functions used to search for values within an array.
+
+# In_array
+
+The in_array() function checks if a value exists in an array.
+
+# Syntax:
+
+in_array($value, $array);
+
+# Array_search
+
+The array_search() function searches an array for a given value and returns the corresponding key if found.
+
+# Syntax:
+
+$key = array_search($value, $array);
+
+If the value is found, array_search() returns the key of the first matching element. If the value is not found, it returns false.
+
+## array_replace() & array_replace_recursive()
+
+In PHP, array_replace() and array_replace_recursive() are functions used to replace the values of one array with the values from another array.
+
+# array_replace()
+
+The array_replace() function replaces the values of the first array with the values from subsequent arrays.
+
+# Syntax:
+
+$new_array = array_replace($array1, $array2, $array3, ...);
+
+It returns a new array where values from subsequent arrays overwrite the corresponding values in the first array.
+
+# array_replace_recursive()
+
+The array_replace_recursive() function does the same as array_replace(), but it handles multidimensional arrays recursively.
+
+# Syntax:
+
+$new_array = array_replace_recursive($array1, $array2, $array3, ...);
+
+This function recursively replaces the values of the first array with the values from subsequent arrays, handling multidimensional arrays appropriately.
+
+These functions are useful for merging arrays while preserving existing keys and values.
+
+## Htmlentities & Htmlspecialchars Functions
+
+In PHP, htmlentities() and htmlspecialchars() are functions used to convert special characters in a string to their HTML entities. These functions are commonly used to prevent Cross-Site Scripting (XSS) attacks by encoding potentially harmful characters.
+
+# Htmlentities
+
+The htmlentities() function converts all applicable characters in a string to HTML entities. This includes characters such as <, >, &, ", and '.
+
+# Syntax:
+
+$html_string = htmlentities($string, $flags, $encoding, $double_encode);
+
+1. $string: The input string to be converted.
+2. $flags: Optional. Specifies how to handle quotes and other characters. Default is ENT_COMPAT(Encodes only double quotes), ENT_QUOTES(encodes double and single quotes), ENT_NOQUOTES(does not encode any quotes) | ENT_HTML401.
+3. $encoding: Optional. Specifies the character encoding. Default is ini_get("default_charset").
+4. $double_encode: Optional. Specifies whether to convert existing HTML entities. Default is true.
+
+# Htmlspecialchars
+
+The htmlspecialchars() function converts special characters in a string to HTML entities, but it does not convert single quotes (') and double quotes ("), making it suitable for use in HTML attribute values.
+
+# Syntax:
+
+$html_string = htmlspecialchars($string, $flags, $encoding, $double_encode);
+
+1. $string: The input string to be converted.
+2. $flags: Optional. Specifies how to handle quotes and other characters. Default is ENT_COMPAT | ENT_HTML401.
+3. $encoding: Optional. Specifies the character encoding. Default is ini_get("default_charset").
+4. $double_encode: Optional. Specifies whether to convert existing HTML entities. Default is true.
+
+# Example
+
+$html = "<script>alert('Hello');</script>";
+$encoded_html = htmlentities($html); // Output: &lt;script&gt;alert('Hello');&lt;/script&gt;
+$encoded_html_special = htmlspecialchars($html); // Output: &lt;script&gt;alert('Hello');&lt;/script&gt;
