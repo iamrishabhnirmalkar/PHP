@@ -1,0 +1,3 @@
+
+
+WHERE name LIKE "s%"
